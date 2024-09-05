@@ -1,0 +1,29 @@
+user@VM-ITS-C01:~$ cd bd2/postgresql/
+
+-- AVVIO DOCKER ----------------------------------------------
+user@VM-ITS-C01:~/bd2/postgresql$ docker compose up -d  
+WARN[0000] /home/user/bd2/postgresql/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Running 2/2
+ ✔ Container pgadmin_container   Started                                   2.6s 
+ ✔ Container postgres_container  Started                                   2.6s 
+
+-- ENTRO IN POSTGRES -----------------------------------------
+user@VM-ITS-C01:~/bd2/postgresql$ docker exec -it postgres_container /bin/bash
+root@b0bc682c52bd:/# psql -U postgres
+psql (16.4 (Debian 16.4-1.pgdg120+1))
+Type "help" for help.
+
+-- CREO DB accademia ---------------------------------------------------
+postgres=# create database accademia;
+CREATE DATABASE
+
+-- LISTA COMANDI POSTGRES ----------------------------------------------
+postgres=# \?
+
+-- ENTRO in DB accademia -----------------------------------------------
+postgres=# \c accademia;
+You are now connected to database "accademia" as user "postgres".
+
+
+-- DETTAGLI TABELLA Persona --------------------------------------------
+postgres=# \d Persona;

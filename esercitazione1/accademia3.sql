@@ -3,18 +3,18 @@ create database accademia3
 -- #####
 
 -- Type
-create type Strutturato as
-	enum (’Ricercatore’, ’Professore Associato’, ’Professore Ordinario’);
+create type Strutturato as 
+	enum ("Ricercatore", "Professore Associato", "Professore Ordinario");
 	
 create type LavoroProgetto as
-	enum (’Ricerca e Sviluppo’, ’Dimostrazione’, ’Management’, ’Altro’);
+	enum ("Ricerca e Sviluppo", "Dimostrazione", "Management", "Altro");
 	
 create type LavoroNonProgettuale as
-	enum (’Didattica’, ’Ricerca’, ’Missione’, ’Incontro Dipartimentale’, 
-	’Incontro Accademico’, ’Altro’);
+	enum ("Didattica", "Ricerca", "Missione", "Incontro Dipartimentale", 
+	"Incontro Accademico", "Altro");
 	
 create type CausaAssenza as
-	enum (’Chiusura Universitaria’, ’Maternita’, ’Malattia’);
+	enum ("Chiusura Universitaria", "Maternita", "Malattia");
 	
 create domain PosInteger as integer
 	check (value >= 0);

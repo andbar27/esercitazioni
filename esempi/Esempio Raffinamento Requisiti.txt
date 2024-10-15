@@ -1,0 +1,62 @@
+Progetto eBuy - Raffinamento dei requisiti
+
+
+1. Utenti
+	1.1 nome (stringa) (univoco)
+	1.2 data di registrazione
+	1.3 privati/professionali (v. 9-10)
+	1.3 affidabilità (calcolabile)
+
+2. Post/Oggetto
+	2.1 descrizione dell'oggetto (stringa)
+	2.2 categoria (v.8)
+	2.3 metodi di pagamento (almeno bonifico e carta di credito)
+	2.4 utente che pubblica (v.1)
+	2.5 condizione (v.6-7)
+	
+3. Post "Compralo Subito"
+	3.0 è un post (v.2)
+	3.1 prezzo di vendita (reale >= 0)
+	3.2 utente privato (v.9)
+
+4. Post "Asta"
+	4.0 è un post (v.2)
+	4.1 prezzo iniziale (reale >= 0)
+	4.2 ammontare rialzi (reale > 0)
+	4.3 istante di scadenza
+	4.4 bid degli utenti privati (v.5)
+	4.5 prezzo finale, *calcolabile* come prezzo iniziale (4.1) + rialzo (4.2) * num. bid (v.5)
+
+5. Bid
+	5.1 istante
+	5.2 bidder (utente privato, v.9)
+	5.3 post asta al quale si riferisce (v.4)
+
+6. Post/Oggetto Nuovo
+	6.1 anni di garanzia (int >= 2)
+
+7.Post/Oggetto Usato
+	7.1 anni di garanzia (int >= 0)
+	7.2 condizione (un valore tra {ottimo, buono, discreto, da sistemare})
+
+8. Categoria
+	8.1 nome (stringa)
+	8.2 sottocategorie (anche nessuna) (esse stesse categorie v.8)
+	8.1 sopra-categoria (anche nessuna) (essa stessa categoria v.8)
+
+9. Utenti privati
+	9.1 è un utente (v.1)
+	9.2 post "compra subito" acquistati (v.3)
+	9.3 bid piazzati (v.5)
+
+10. Venditore Professionale
+	10.1 è un utente (v.2)
+	10.2 URL vetrina (stringa secondo formato URL standard)
+	10.3 popolarità (calcolabile)
+
+11. Feedback
+	11.1 voto (un intero tra 0 e 5)
+	11.2 commento (stringa) (opzionale)
+	11.3 utente privato (v. 9)
+
+

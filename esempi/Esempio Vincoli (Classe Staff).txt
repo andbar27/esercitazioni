@@ -1,0 +1,8 @@
+Specifica Classe Staff
+
+Vincoli
+
+[V.Staff.complete]
+	Per ogni s:Staff, deve essere:
+		- esiste d:Direttore t.c. (d,s):dir_isa_staff, oppure
+		- esiste d:Dipendente t.c. (d,s):dip_isa_staff

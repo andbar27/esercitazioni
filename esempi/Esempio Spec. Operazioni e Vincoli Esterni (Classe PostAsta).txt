@@ -1,0 +1,45 @@
+Specifica classe PostAsta
+
+=== Operazioni ===
+
+acquirente(): UtentePrivato 
+	pre: 
+		- this.bid_aggiudicatario() effettivamente restituisce un bid, ovvero, più sinteticamente:
+			this.bid_aggiudicatario():Bid
+
+	post:
+		Sia b = this.bid_aggiudicatario()
+		result:UtentePrivato è tale che: (b, result):bidder
+
+
+bid_aggiudicatario(): Bid [0..1]
+	pre: 
+		- this.scadenza < adesso	
+
+	post:
+		Se esiste b:Bid t.c. (b,this):bid_asta, allora:
+			result:Bid tale che:
+				- (result,this): bid_asta
+				- non esiste alcun b:Bid tale che:
+					- (b,this): bid_asta
+					- b.istante > result.istante
+		Altrimenti result non è definito.
+
+
+prezzo_finale(): Reale >= 0
+	pre:
+		- this.bid_aggiudicatario():Bid
+	post: 
+		result = this.bid_aggiudicatario().prezzo_asta()
+
+
+
+=== Vincoli esterni ===
+
+[V.PostAsta.scadenza]
+	Per ogni a:PostAsta, deve essere: a.scadenza > a.apertura.
+
+[V.PostAsta.apertura_dopo_iscrizione]	
+	Per ogni a:PostAsta, sia u:Utente, l'utente che ha messo in vendita 'a', ovvero t.c. (u,a):vende.
+	Deve essere: a.apertura >= u.iscrizione.
+

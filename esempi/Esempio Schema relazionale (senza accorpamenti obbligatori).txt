@@ -1,0 +1,79 @@
+Schema relazionale, vers. 1 (senza accorpamenti obbligatori)
+
+
+Nazione(__nome:varchar__);
+
+Regione(__nome:varchar__, __nazione:varchar__)
+	FK: nazione references Nazione(nome)
+
+Citta(nome:varchar, regione:varchar, nazione:varchar)
+	FK: (regione, nazione) references Regione(nome, nazione)
+
+Officina(_id:integer_, nome:varchar, 
+		indirizzo:Indirizzo, 
+		direttore:CodiceFiscale)
+	FK: direttore ref Direttore(staff)
+
+Riparazione(
+		__id:integer__, 
+		accettazione:timestamp, 
+		veicolo)
+	
+	foreign key: (id) 
+		references off_rip(riparazione)
+	fk: (veicolo) ref. Veicolo(targa)
+
+Veicolo(__targa__)
+
+
+
+off_rip(
+	officina:integer
+	__riparazione:integer__
+)
+	foreign key: (officina) references Officina(id)
+	foreign key: (riparazione) references Riparazione(id)
+
+
+
+
+
+Direttore(__staff:CodiceFiscale__, nascita:date  )
+	FK: staff references Staff(persona)
+
+
+
+
+
+
+
+
+
+
+
+Modello(__nome__, __marca___)
+	FK: marca references Marca(nome)
+
+Marca(_nome_)
+
+
+Persona(__cf:CodiceFiscale, nome, cognome, tel)
+
+
+Staff(__persona:CodiceFiscale__)
+	FK: persona references Persona(cf)
+
+
+lavora(
+	__officina:integer__,
+	__dipendente:CodiceFiscale__,
+	data_assunzione: date
+)
+	FK: (officina) references Officina(id),
+	FK: (dipendente) references Dipendente(staff)
+
+
+Dipendente(__staff:CodiceFiscale__)	
+	FK: staff references Staff(persona)
+
+	v. inclusione staff occorre in lavora(dipendente)

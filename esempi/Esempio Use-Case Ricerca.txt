@@ -1,0 +1,17 @@
+Use-case Ricerca
+
+Specifica delle operazioni
+
+
+1) oggetti_categorie(C: Categoria [1..*]): PostOggetto [0..*]
+ (dato un insieme di categorie C, deve restituire i PostOggetto la cui categoria appartiene a C).
+
+
+
+2) radici(): Categoria [1..*]
+(L'insieme delle categorie "radice", che cioè non hanno una sopra-categoria.)
+
+
+
+3) utenti_senza_bid(inizio: DataOra, fine: DataOra): Privato [0..*]
+(L'insieme di utenti privati che non hanno mai effettuato bid in un periodo dato.) 

@@ -1,0 +1,17 @@
+Specifica classe PostCompraSubito
+
+=== Operazioni ===
+
+acquirente(): UtentePrivato
+	pre:
+		esiste u:UtentePrivato tale che: (u, this):acquista
+	post:
+		result è tale che: (result, this):acquista
+
+
+
+=== Vincoli ===
+
+[V.PostCompraSubito.acquirente_non_venditore]
+	Per ogni p:PostCompraSubito, sia v:Utente tale che (v, p):vende.
+	Deve essere p.acquirente() != v.

@@ -1,0 +1,1 @@
+Chiedere al prof differenza tra Vincoli e Vincoli Esterni negli esempi forniti

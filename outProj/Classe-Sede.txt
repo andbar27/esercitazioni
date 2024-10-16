@@ -1,1 +1,4 @@
-Specifica classe 
+Specifica classe Sede
+
+=== Vincoli esterni ===
+[V.Sede.]

@@ -1,0 +1,7 @@
+Specifica classe Sala
+
+=== Vincoli Esterni ===
+
+[V.Sala.sede_sala]
+    Per ogni sa:Sala e se:Sede
+    

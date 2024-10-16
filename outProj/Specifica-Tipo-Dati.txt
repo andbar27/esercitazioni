@@ -1,0 +1,3 @@
+Specifica dei tipi di dato
+
+Indirizzo: via: String, civico: String, citta: String, nazione: String

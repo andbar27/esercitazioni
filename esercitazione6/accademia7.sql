@@ -79,19 +79,15 @@ WITH nAssenzePA as (
 	WHERE p.id = a.persona and p.posizione = 'Professore Associato'
 	    and a.tipo = 'Malattia'
 	GROUP BY p.id
-),
-nAssenzePO as (
-	SELECT p.id as pid, count(p.id) as nAs, 
-        p.nome as nome, p.cognome as cognome
-	FROM Persona p, Assenza a, nAssenzePA naa
-	WHERE p.id = a.persona and p.posizione = 'Professore Ordinario'
-	    and a.tipo = 'Malattia' 
-	GROUP BY p.id, p.nome, p.cognome
-	HAVING count(p.id) > avg(nAs)
 )
+SELECT p.id, p.nome as nome,
+	p.cognome as cognome,  count(p.id) as nAssenze
+FROM Persona p, Assenza a, nAssenzePA naa
+WHERE p.id = a.persona and p.posizione = 'Professore Ordinario'
+	and a.tipo = 'Malattia' 
+GROUP BY p.id, p.nome, p.cognome
+HAVING count(p.id) > avg(nAs)
 
-SELECT nnn.pid, nnn.nome, nnn.cognome, nnn.nAs
-FROM nAssenzePo nnn
 
 	
 

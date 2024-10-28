@@ -9,18 +9,6 @@ WITH assenti as (
 	WHERE (anp.giorno IS NOT NULL or ap.giorno IS NOT NULL) and p.id = a.persona
 )
 SELECT distinct p.id, p.nome, p.cognome
-FROM Assenza a, Persona p, assenti aa
-WHERE p.id = a.persona and aa.persona <> p.id
-
--- come la vuole il prof
-WITH assenti as (
-	SELECT distinct p.id as persona
-	FROM AttivitaNonProgettuale anp right outer join (Assenza a left outer join AttivitaProgetto ap 
-	    on a.persona = ap.persona and a.giorno = ap.giorno) on anp.persona = a.persona and anp.giorno = a.giorno,
-	    Persona p
-	WHERE (anp.giorno IS NOT NULL or ap.giorno IS NOT NULL) and p.id = a.persona
-)
-SELECT distinct p.id, p.nome, p.cognome
 FROM Persona p, assenti aa
 WHERE aa.persona <> p.id
 

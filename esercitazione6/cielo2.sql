@@ -1,9 +1,8 @@
 -- 1. Quante sono le compagnie che operano (sia in arrivo che in 
 -- partenza) nei diversi aeroporti?
 SELECT a.codice, a.nome, COUNT(distinct ap.comp)
-FROM ArrPart ap, Aeroporto a, ArrPart ap2
-WHERE ap.arrivo = a.codice and ap2.partenza = a.codice 
-    and ap2.comp = ap.comp
+FROM Aeroporto a, ArrPart ap 
+WHERE ap.arrivo = a.codice or ap.partenza = a.codice
 GROUP BY a.codice, a.nome
 	
 

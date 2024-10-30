@@ -1,0 +1,10 @@
+99. Requisiti sulle funzionalità:
+    
+    99.2. Gli utenti registrati devono poter:
+        99.2.5. aggiungere un video ad una playlist, fornendo: video (non censurato) e playlist (che deve essere propria)
+
+        99.2.6. rimuovere un video ad una playlist, fornendo: video e playlist (che deve essere propria)
+
+        99.2.7. riordinare una playlist, fornendo nuovi numeri di posizione ad uno o più video della playlist
+
+        

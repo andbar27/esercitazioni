@@ -1,0 +1,4 @@
+Iniziare la fase di progettazione della base dati conducendo i seguenti passi:
+
+1. Ristrutturazione del digramma UML concettuale delle classi
+    3. Ristrutturare le generalizzazioni.

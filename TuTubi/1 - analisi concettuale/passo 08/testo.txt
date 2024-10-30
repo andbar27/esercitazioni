@@ -1,0 +1,10 @@
+8. Requisiti sulle playlist:
+    8.1. nome
+    8.2. tipo (pubblica o privata)
+    8.3. una lista ordinata di video (con possibili ripetizioni)
+
+99. Requisiti sulle funzionalità:
+     99.1. Gli utenti possono:
+              99.1.2. visualizzare una playlist pubblica
+     99.2. Gli utenti registrati devono poter:
+              99.2.4. creare una playlist, fornendo 8.1, 8.2

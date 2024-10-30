@@ -1,0 +1,8 @@
+2. Requisiti sui video:
+	2.10. il numero di visualizzazioni (v. req. 7)
+
+7. Requisiti sulle visualizzazioni:
+	7.1. utente
+	7.2. video
+	7.3. istante
+	

@@ -1,0 +1,6 @@
+99. Requisiti sulle funzionalità:
+    
+    99.2. Gli utenti registrati devono poter:
+        99.2.1. pubblicare un video fornendo i dati di cui ai req. 2.2, 2.4, 2.5, 2.6, 2.7, 2.9
+
+        

@@ -1,0 +1,10 @@
+2. Requisiti sui video:
+	2.6. categoria (v. req. 5)
+	2.7. uno o più tag (v. req. 6)
+
+5. Requisiti sulle categorie:
+	5.1. nome
+	5.2. l'eventuale super-categoria
+
+6. Requisiti sui tag:
+	6.1. nome

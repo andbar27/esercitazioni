@@ -1,0 +1,8 @@
+2. Requisiti sui video:
+ 
+   2.11. l'eventuale censura, nel qual caso interessa:
+   2.12. l'istante della censura
+   2.13. ragione della censura
+ 
+99.4. La redazione deve poter:
+     99.5. censurare un video, fornendo: video, ragione.

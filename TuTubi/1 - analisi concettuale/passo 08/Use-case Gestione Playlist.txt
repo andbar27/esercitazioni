@@ -1,0 +1,26 @@
+Specifica use-case Gestione Playlist
+
+
+nuova_playlist(nome:Stringa, tipo:TipoPlaylist) : Playlist
+	pre: 
+		Sia u:Utente l'oggetto associato all'attore che ha invocato l'operazione.
+
+		Non esiste p:Playlist tale che:
+			- p.nome = nome
+			- (u,p):ut_playlist
+
+	post: 
+		- Se tipo = pubblica, allora viene creato p:PlaylistPubblica.
+		  - Altrimenti (tipo = privata) allora viene creato p:PlaylistPrivata.
+
+		- Si assegna p.nome = nome;
+		- Viene creato il link (u,p):ut_playlist;
+		- Viene restituito 'p';
+
+cerca_playlist(u:Utente [0..1], parte_di_nome:Stringa [0..1]): Playlist [0..*]
+	pre: nessuna
+	post:
+		result è l'insieme degli oggetti p:PlaylistPubblica tali che:
+			- se l'arg. nome è valorizzato, allora: 
+				p.nome ~ ".*?" + parte_di_nome + ".*"
+			- se l'arg u è valorizzato, allora: (u,p):ut_playlist

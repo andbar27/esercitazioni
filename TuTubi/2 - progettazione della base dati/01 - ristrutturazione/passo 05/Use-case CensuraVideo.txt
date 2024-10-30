@@ -1,0 +1,11 @@
+Specifica use-case CensuraVideo
+
+censura(v:Video, ragione:varchar)
+   	pre: Il video 'v' non è legato ad una istanza di VideoCensurato.
+		v.istante < istante corrente
+	post:
+		Viene creato vc:VideoCensurato, con:		
+			- vc.ragione = ragione
+			- vc.istante = istante corrente.	
+
+		Viene creato il link (vc, v):vc_isa_a.

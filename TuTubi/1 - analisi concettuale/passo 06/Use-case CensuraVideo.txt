@@ -1,0 +1,9 @@
+Specifica use-case CensuraVideo
+
+censura(v:Video, ragione:Stringa)
+	pre: Il video 'v' non è stanza di VideoCensurato.
+		v.istante < istante corrente
+	post:
+		Il video v diventa anche di sottoclasse VideoCensurato con:
+			- v.ragione = ragione
+			- v.istante = istante corrente.	

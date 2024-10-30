@@ -1,0 +1,5 @@
+Specifica classe Visualizzazione
+
+[V.Visualizzazione.no_visualizzazioni_dopo_censura]
+	Non deve esistere alcun oggetto vis:Visualizzazione tale che l'oggetto vid:Video associato è legato ad un oggetto vc:VideoCensurato e vc.istante < vis.istante.
+

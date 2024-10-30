@@ -1,0 +1,11 @@
+Specifica Use-case Registrazione
+
+nuovo_utente(nome: varchar): Utente
+	pre: 
+		non esiste u:Utente tale che u.nome = nome.
+
+	post: 
+		Viene creato u:Utente con: 
+			- u.nome = nome
+			- u.iscrizione = istante corrente.
+		result = u.

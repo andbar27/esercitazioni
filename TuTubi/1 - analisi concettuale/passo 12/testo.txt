@@ -1,0 +1,5 @@
+99. Requisiti sulle funzionalità:
+    
+    99.3. Gli utenti non registrati devono poter:
+        99.4. registrarsi, fornendo 1.1.
+        

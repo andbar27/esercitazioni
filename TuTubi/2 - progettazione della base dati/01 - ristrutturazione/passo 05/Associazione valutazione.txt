@@ -1,0 +1,12 @@
+Specifica ristrutturata associazione valutazione
+
+
+[V.valutazione.video_già_visualizzato]
+	Per ogni link (u:Utente, v:Video) di associazione valutazione, 
+	deve esistere un oggetto vis:Visualizzazione tale che:
+		- è relativo all'utente u
+		- è relativo al video v
+		- vis.istante < (u,v).istante
+
+[V.valutazione.video_non_di_se_stesso]
+	Per ogni (u:Utente, v:Video) di associazione valutazione, il video 'v' non deve essere dell'utente 'u', ovvero (u,v) non è un link di associazione utente_video

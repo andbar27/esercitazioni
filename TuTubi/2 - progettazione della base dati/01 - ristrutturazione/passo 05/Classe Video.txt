@@ -1,0 +1,43 @@
+Specifica ristrutturata della classe Video
+
+
+Operazioni
+
+n_visualizzazioni(): IntegerGEZ
+	pre: nessuna
+
+	post: 
+		result è il numero di link di associazione vid_vis che coinvolgono "this".
+
+voto_medio(): Reale_tra_0_e_5
+	pre:
+		this è coinvolto in almeno un link di assoc. valutazione
+		
+	post:
+		Sia L l'insieme di tutti i link di assoc. valutazione che coinvolgono this.
+
+		result è il valore medio dei valori dell'attributo 'voto' di tutti i link dell'insieme L.
+
+
+
+
+Vincoli esterni
+
+[V.Video.censurato.disj_complete]
+	Per ogni v:Video, esattamente una delle seguenti è vera:
+		- o esiste c:VideoCensurato tale che (c,v):cv_isa_v
+		- oppure esiste vnc:VideoNonCensurato tale che (vnc,v):cnv_isa_v
+
+
+[V.Video.risposte_non_dello_stesso_utente]
+	Non devono esistere v,o:Video, tali che:
+		- (v:risposta,o:originale):video_risposta
+		- esiste u:Utente tale che: 
+				(u, v):utente_video e (u, o):utente_video
+
+		
+[V.Video.risposta_successiva_ad_originale]
+	Non devono esistere v,o:Video, tali che:
+		- (v:risposta,o:originale):video_risposta
+		- v.istante <= o.istante
+		

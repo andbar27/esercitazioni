@@ -1,0 +1,9 @@
+Specifica classe Categoria
+
+Vincoli esterni
+
+[V.Categoria.aciclico]
+	Per ogni c:Categoria: 
+		- se esiste c_sup:Categoria tale che (c:sotto, c_sup:super)
+			- deve essere c.livello = c_sup.livello + 1
+		- altrimenti c.livello = 1

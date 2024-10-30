@@ -1,0 +1,18 @@
+Specifica use-case Commenti
+
+nuovo_commento(v:Video, testo:text): Commento
+	pre: 
+		Sia u:Utente l'oggetto associato all'attore che ha invocato l'operazione.
+
+		L'utente 'u' ha visualizzato il video prima dell'istante corrente, ovvero:
+			esiste un oggetto vis:Visualizzazione associato ad 'u' ed a 'v' e tale che vis.istante < istante corrente.
+
+		L'oggetto v non ha link con oggetti di classe VideoCensurato.
+
+	post:
+		Viene creato l'oggetto result:Commento con i seguenti valori per i suoi attributi:
+			- result.istante = istante corrente
+			- result.testo = testo
+
+		Viene creato il link (result, u):comm_ut
+		Vieen creato il link (result, v):comm_vid.

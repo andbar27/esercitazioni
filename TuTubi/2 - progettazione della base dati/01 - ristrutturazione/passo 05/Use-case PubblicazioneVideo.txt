@@ -1,0 +1,37 @@
+Specifica Use-case PubblicazioneVideo
+
+
+nuovo_video(
+	titolo: varchar,
+	descr: varchar,
+	vid: FileVideo,
+	cat: Categoria,
+	T: Tag [1..*],
+	orig: Video [0..1]
+) : Video
+
+	pre: 
+		Sia u:Utente l'oggetto associato all'attore che ha invocato l'operazione.
+
+		(Per non violare [V.Video.risposte_non_dello_stesso_utente])
+		Se 'orig' è valorizzato, allora (u,orig) non deve essere un link di associazone utente_video.
+
+		(Per non violare [V.Video.risposta_successiva_ad_originale])
+		Se 'orig' è valorizzato, allora orig.istante < istante corrente.
+
+	post:
+		Viene creato v:Video con i seguenti valori per i suoi attributi:
+			- v.titolo = titolo
+			- v.descrizione = descr
+			- v.video = vid
+			- v.istante = istante corrente.
+
+		- Viene creato il link (cat,v):cat_video
+		- Per ogni tag t:T viene creato il link (t,v):tag_video
+		- Viene creato il link (u,v):utente_video
+		- Se l'arg. 'orig' è valorizzato, viene creato 
+			il link (v:risposta, orig:originale):video_risposta.
+
+		result = v.
+
+		

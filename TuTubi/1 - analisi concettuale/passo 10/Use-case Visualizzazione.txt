@@ -1,0 +1,7 @@
+Specifica use-case Visualizzazione
+
+
+ottieni_stream(v:Video) : FileVideo
+	pre: v non è di classe VideoCensurato
+	post:
+		result = v.video

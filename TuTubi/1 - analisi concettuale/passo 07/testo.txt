@@ -1,0 +1,9 @@
+4. Requisiti sui commenti:
+    4.1. utente (v. req. 1)
+    4.2. video
+    4.3. istante del commento
+    4.4. testo
+    4.5. deve essere garantito che l'utente ha visualizzato un video prima di commentarlo.
+ 
+ 99.2. Gli utenti registrati devono poter:
+    99.2.3. commentare un video visionato, non censurato, fornendo: video, commento.

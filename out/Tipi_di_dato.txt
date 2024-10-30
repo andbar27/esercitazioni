@@ -1,0 +1,8 @@
+Tipi di dato
+
+Indirizzo = {via : String, citta : Stringa, nazione : Stringa}
+
+DataOra = {data : Date, ora : String}
+
+codFisc = r.e. (..)
+

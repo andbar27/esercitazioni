@@ -1,0 +1,4 @@
+Tipi di dato
+
+FileVideo:
+sequenza di bit che codifica un video

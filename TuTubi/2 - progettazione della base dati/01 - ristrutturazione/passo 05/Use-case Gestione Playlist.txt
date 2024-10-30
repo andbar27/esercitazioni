@@ -1,0 +1,82 @@
+Specifica use-case Gestione Playlist
+
+
+nuova_playlist(nome:varchar, tipo:TipoPlaylist) : Playlist
+	pre: 
+		Sia u:Utente l'oggetto associato all'attore che ha invocato l'operazione.
+
+		Non esiste p:Playlist tale che:
+			- p.nome = nome
+			- (u,p):ut_playlist
+
+	post: 
+		- Viene creato un nuovo oggetto p:Playlist con:
+			- p.tipo = tipo
+			- Si assegna p.nome = nome;
+
+		- Viene creato il link (u,p):ut_playlist;
+		- Viene restituito 'p';
+
+
+aggiungi_a_playlist(p:Playlist, v:Video, pos:IntegerGZ [0..1])
+	pre: 
+		Sia u:Utente l'oggetto associato all'attore che ha invocato l'operazione.
+
+		Deve essere (u,p):ut_playlist.
+
+		Se 'pos' è valorizzato, allora non deve esistere s:PlaylistSlot tale che:
+			- s.pos = pos
+			- (p,s):pl_slot
+
+		Il video v non deve essere linkato ad oggetti di classe VideoCensurato.
+
+	post:
+		Se l'arg. pos non è valorizzato, allora:
+			sia max_pos il massimo valore dell'attributo 'pos' tra tutti gli oggetto s':PlaylistSlot associati a 'p'
+			sia pos = max_pos + 1
+
+		- Viene creato s:PlaylistSlot con s.pos = pos.
+		- Viene creato il link (p,s):pl_slot
+		- Viene creato il link (v,s):video_in_slot
+
+		result = s.
+
+
+rimuovi_da_playlist(s:PlaylistSlot)
+	pre: 		
+		Sia u:Utente l'oggetto associato all'attore che ha invocato l'operazione.
+
+		Sia p:Playlist l'oggetto associato a 's'.
+		
+		Deve essere (u,p):ut_playlist.
+
+	post:
+		Viene eliminato l'oggetto 's'.
+		Vengono eliminati i link di assoc. video_in_slot e pl_slot nei quali è coinvolto 's'.
+
+
+
+riordina_slot_in_playlist(s:PlaylistSlot, nuova_pos:IntegerGZ)
+	pre: 
+		- Sia u:Utente l'oggetto associato all'attore che ha invocato l'operazione.
+
+		- Sia p:Playlist l'oggetto associato a 's'. 
+		  Deve essere (u,p):ut_playlist.
+
+		Non deve esistere s:PlaylistSlot tale che:
+			- s.pos = nuova_pos
+			- (p,s):pl_slot.
+
+	post:
+		s.pos = nuova_pos.
+
+
+cerca_playlist(u:Utente [0..1], parte_di_nome:varchar [0..1]): Playlist [0..*]
+	pre: nessuna
+	post:
+		result è l'insieme degli oggetti p:PlaylistPubblica tali che:
+			- se l'arg. nome è valorizzato, allora: 
+				p.nome ~ ".*?" + parte_di_nome + ".*"
+			- se l'arg u è valorizzato, allora: (u,p):ut_playlist
+
+	

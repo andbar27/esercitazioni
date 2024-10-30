@@ -1,0 +1,25 @@
+Specifica classe Video
+
+Operazioni
+
+n_visualizzazione(): Intero >= 0
+	pre: nessuna
+
+	post: 
+		result è il numero di link di associazione vid_vis che coinvolgono "this".
+
+
+
+Vincoli esterni
+
+[V.Video.risposte_non_dello_stesso_utente]
+	Non devono esistere v,o:Video, tali che:
+		- (v:risposta,o:originale):video_risposta
+		- esiste u:Utente tale che: 
+				(u, v):utente_video e (u, o):utente_video
+
+		
+[V.Video.risposta_successiva_ad_originale]
+	Non devono esistere v,o:Video, tali che:
+		- (v:risposta,o:originale):video_risposta
+		- v.istante <= o.istante

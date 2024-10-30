@@ -1,0 +1,7 @@
+2. Requisiti sui video:
+	2.1. autore (v. req. 1)
+	2.2. titolo
+	2.4. descrizione
+	2.5. file video
+	2.8. istante di caricamento
+	2.9. l'eventuale video a cui risponde, che non deve essere dello stesso utente

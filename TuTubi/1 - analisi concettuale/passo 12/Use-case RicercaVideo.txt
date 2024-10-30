@@ -1,0 +1,22 @@
+Specifica Use-case RicercaVideo
+
+
+99.1.3. effetuare una ricerca di video, fornendo: una categoria, uno o più tag, un intero v:0..5, ed ottenendo tutti i video non censurati di quella categoria che posseggono almeno uno tra i tag indicati, e che abbiano una valutazione media di almeno v (se un video non ha ancora alcuna valutazione, deve essere restituito comunque).
+
+
+ricerca(
+	cat:Categoria,
+	T:Tag [1..*],
+	v:0..5
+):	Video [0..*]
+	
+	pre: 
+		nessuna
+	
+	post:
+		result è l'insieme degli oggetti vid:Video tali che:
+			- (cat, vid):cat_video
+			- esiste un t:T per cui (t,vid):tag_video
+			- vid non è di classe VideoCensurato
+			- o le precondizioni di vid.voto_medio() sono violate, oppure vid.voto_medio() >= v
+

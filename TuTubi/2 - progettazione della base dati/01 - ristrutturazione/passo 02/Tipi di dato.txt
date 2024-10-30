@@ -1,0 +1,28 @@
+Tipi di dato
+
+CREATE DOMAIN IntegerGZ as Integer
+	CHECK (value > 0);
+
+CREATE DOMAIN IntegerGEZ as Integer
+	CHECK (value >= 0);
+
+
+CREATE DOMAIN Voto as Integer
+	CHECK (value BETWEEN 0 AND 5);
+
+
+CREATE DOMAIN Reale_tra_0_e_5 AS NUMERIC(3,2)
+	CHECK (VALUE BETWEEN 0 AND 5);
+
+
+CREATE TipoPlaylist AS ENUM ('pubblica', 'privata');
+
+
+CREATE DOMAIN FileVideo AS BYTEA;  
+	-- non molto efficiente, potremmo definirlo come VARCHAR 
+	-- per salvare solo il filepath in uno storage system dedicato, 
+	-- ottimizzato per lo streaming di video.
+
+
+
+

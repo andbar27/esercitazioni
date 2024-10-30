@@ -1,0 +1,4 @@
+Iniziare la fase di progettazione della base dati conducendo i seguenti passi:
+
+1. Ristrutturazione del digramma UML concettuale delle classi
+    2. Progettare una corrispondenza tra i tipi concettuali di ogni attributi/argomento di operazioni in tipi supportati dal DBMS in uso.

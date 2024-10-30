@@ -1,0 +1,40 @@
+1. Requisiti sulla Sede:
+    1.1. nome (univoco)
+    1.2. indirizzo
+
+2. Requisiti sulla Sala:
+    2.1. Sede (v. req. 1)
+    2.2. Tipo Sala 
+
+3. Requisiti sullo Spettacolo:
+    3.1 titolo 
+    3.2 tipo
+    3.3 genere
+    3.4 Artisti
+
+4. Requisiti sull'Evento:
+    4.1 Spettacolo (v. req. 3)
+    4.2 data e ora 
+    4.3 Sala (v. req. 1)
+
+5. Requisiti sul Posto:
+    5.1. Sala (v. req. 2)
+    5.2. numero fila 
+    5.3. numero colonna
+
+6. Persona:
+    6.1. nome
+    6.2. cognome
+    6.3. codice fiscale (univoco)
+
+7. Utente:
+    7.1. persona (v. req. 6)
+
+8. Artista:
+    8.1. persona (v. req. 6)
+
+9. Tariffa:
+    9.1 Evento (v. req. 4)
+    9.2 Posto (v. req. 5)
+    9.3 prezzo pieno
+    9.4 prezzo ridotto

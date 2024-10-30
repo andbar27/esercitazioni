@@ -1,0 +1,16 @@
+Specifica classe Video
+
+
+Vincoli esterni
+
+[V.Video.risposte_non_dello_stesso_utente]
+	Non devono esistere v,o:Video, tali che:
+		- (v:risposta,o:originale):video_risposta
+		- esiste u:Utente tale che: 
+				(u, v):utente_video e (u, o):utente_video
+
+		
+[V.Video.risposta_successiva_ad_originale]
+	Non devono esistere v,o:Video, tali che:
+		- (v:risposta,o:originale):video_risposta
+		- v.istante <= o.istante

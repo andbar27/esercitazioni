@@ -1,0 +1,9 @@
+Tipi di dato
+
+FileVideo:
+sequenza di bit che codifica un video
+
+
+TipoPlaylist = {pubblica, privata}
+
+Reale_tra_0_e_5 = reale >= 0 e <= 5

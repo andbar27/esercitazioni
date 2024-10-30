@@ -1,0 +1,19 @@
+Specifica Use-case RicercaVideo
+
+
+ricerca(
+	cat:Categoria,
+	T:Tag [1..*],
+	v:0..5
+):	Video [0..*]
+	
+	pre: 
+		nessuna
+	
+	post:
+		result è l'insieme degli oggetti vid:Video tali che:
+			- (cat, vid):cat_video
+			- esiste un t:T per cui (t,vid):tag_video
+			- vid non è linkato ad oggetti di classe VideoCensurato
+			- o le precondizioni di vid.voto_medio() sono violate, oppure vid.voto_medio() >= v
+

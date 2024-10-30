@@ -1,0 +1,5 @@
+99. Requisiti sulle funzionalità:
+    99.1. Gli utenti possono:
+        99.1.1. visualizzare un video (non censurato)
+
+        99.1.3. effetuare una ricerca di video, fornendo: una categoria, uno o più tag, un intero v:0..5, ed ottenendo tutti i video non censurati di quella categoria che posseggono almeno uno tra i tag indicati, e che abbiano una valutazione media di almeno v (se un video non ha ancora alcuna valutazione, deve essere restituito comunque).

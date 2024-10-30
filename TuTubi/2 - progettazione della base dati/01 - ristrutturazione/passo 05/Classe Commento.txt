@@ -1,0 +1,8 @@
+Specifica ristrutturata classe Commento
+
+
+[V.Commento.esiste_visualizzazione_precedente]
+	Per ogni oggetto c:Commento associato all'utente 'u' e al video 'v', deve esistere un oggetto vis:Visualizzazione tale che:
+		- vis è legato all'utente 'u'
+		- vis è legato al video 'v'
+		- vis.istante < c.istante

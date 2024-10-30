@@ -1,0 +1,83 @@
+1. Requisiti sugli utenti:
+	1.1. nome (univoco)
+	1.2. istante di iscrizione
+
+2. Requisiti sui video:
+	2.1. autore (v. req. 1)
+	2.2. titolo
+	2.3. durata (calcolabile da 2.5)
+	2.4. descrizione
+	2.5. file video
+	2.6. categoria (v. req. 5)
+	2.7. uno o più tag (v. req. 6)
+	2.8. istante di caricamento
+	2.9. l'eventuale video a cui risponde, che non deve essere dello stesso utente
+	2.10. il numero di visualizzazioni (v. req. 7)
+
+	2.11. l'eventuale censura, nel qual caso interessa:
+		2.12. l'istante della censura
+		2.13. ragione della censura
+
+3. Requisiti sulle valutazioni:
+	3.1. utente (v. req. 1)
+	3.2. video (non pubblicato dall'utente di cui al req. 3.1)
+	3.3. istante di valutazione
+	3.4. voto (tra 0 e 5)
+	3.5. deve essere garantito che l'utente ha visualizzato un video prima di valutarlo
+	3.6. un utente non può valutare due volte lo stesso video
+
+4. Requisiti sui commenti:
+	4.1. utente (v. req. 1)
+	4.2. video
+	4.3. istante del commento
+	4.4. testo
+	4.5. deve essere garantito che l'utente ha visualizzato un video prima di commentarlo
+
+5. Requisiti sulle categorie:
+	5.1. nome
+	5.2. l'eventuale super-categoria
+
+6. Requisiti sui tag:
+	6.1. nome
+
+7. Requisiti sulle visualizzazioni:
+	7.1. utente
+	7.2. video
+	7.3. istante
+
+8. Requisiti sulle playlist
+	8.1. nome
+	8.2. tipo (pubblica o privata)
+	8.3. una lista ordinata di video (con possibili ripetizioni)
+
+
+99. Requisiti sulle funzionalità:
+	99.1. Gli utenti possono:
+		99.1.1. visualizzare un video (non censurato)
+
+		99.1.2. visualizzare una playlist pubblica
+
+		99.1.3. effetuare una ricerca di video, fornendo: una categoria, uno o più tag, un intero v:0..5, ed ottenendo tutti i video non censurati di quella categoria che posseggono almeno uno tra i tag indicati, e che abbiano una valutazione media di almeno v (se un video non ha ancora alcuna valutazione, deve essere restituito comunque).
+
+	99.2. Gli utenti registrati devono poter:
+		99.2.1. pubblicare un video fornendo i dati di cui ai req. 2.2, 2.4, 2.5, 2.6, 2.7, 2.9
+
+		99.2.2. valutare un video visionato, non censurato, fornendo: video, voto
+
+		99.2.3. commentare un video visionato, non censurato, fornendo: video, commento
+
+		99.2.4. creare una playlist, fornendo 8.1, 8.2
+
+		99.2.5. aggiungere un video ad una playlist, fornendo: video (non censurato) e playlist (che deve essere propria)
+
+		99.2.6. rimuovere un video ad una playlist, fornendo: video e playlist (che deve essere propria
+
+		99.2.7. riordinare una playlist, fornendo nuovi numeri di posizione ad uno o più video della playlist
+
+	99.3. Gli utenti non registrati devono poter:
+		99.4. registrarsi, fornendo 1.1.
+
+	99.4. La redazione deve poter:
+		99.5. censurare un video, fornendo: video, ragione.
+
+

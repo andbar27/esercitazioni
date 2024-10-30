@@ -1,0 +1,6 @@
+Specifica ristrutturata della classe Video
+
+[V.Video.censurato.disj_complete]
+	Per ogni v:Video, esattamente una delle seguenti è vera:
+		- o esiste c:VideoCensurato tale che (c,v):cv_isa_v
+		- oppure esiste vnc:VideoNonCensurato tale che (vnc,v):cnv_isa_v

@@ -2,6 +2,7 @@ Specifica Classe Staff
 
 Vincoli
 
+
 [V.Staff.complete]
 	Per ogni s:Staff, deve essere:
 		- esiste d:Direttore t.c. (d,s):dir_isa_staff, oppure

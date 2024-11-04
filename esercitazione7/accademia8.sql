@@ -90,6 +90,21 @@ WHERE pg.budget < bm.bMedio and pg.id = ap.progetto and
 
 
 
+(old)
+IF NOT EXIST:
+    SELECT *
+    FROM Visualizzazione vis, Valutazione val 
+    WHERE   (vis.utente, vis.video = old.utente, old.video) and
+            (vis.utente, vis.video = val.utente, val.video) and
+            vis.istante < val.istante
+            --C'È UNA VISUALIZZAZIONE PRIMA DELLA VALUTAZIONE?
+            -- SE NO: ERRORE
+THEN:
+    EXCEPTION
+
+
+
+
 
 
 

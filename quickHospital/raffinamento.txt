@@ -1,0 +1,35 @@
+1. Persona:
+    1.1 nome
+    1.2 cognome
+    1.3 data di nascita
+
+2. Medico:
+    2.1 Persona (v. req. 1)
+    2.2 Paziente (v. req. 2)
+
+3. Paziente:
+    3.1 Persona (v. req. 1)
+    3.2 numero telefono [1..*]
+    3.3 email (unique)
+    3.4 indirizzo postale (unique)
+
+4. Ospedale:
+    4.1 nome
+    4.2 Stanza (v. req. 5)
+
+5. Stanza: 
+    5.1 Posto Letto [1..8]
+    5.2 piano (int >= 0)
+    5.3 settore (int >= 0)
+
+6. Posto Letto:
+    6.1 numero (int > 0)
+
+7. Ricovero:
+    7.1 Paziente (v. req. 3)
+    7.2 data inizio
+    7.3 Posto Letto (v. req. 6)
+
+8. Fine Ricovero:
+    8.1 Ricovero (v. req. 7)
+    8.2 data fine

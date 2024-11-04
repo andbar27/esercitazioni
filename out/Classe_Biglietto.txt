@@ -1,0 +1,13 @@
+Specifica Classe Biglietto
+
+[V.Biglietto.coerenza_tra_link]
+    Per ogni oggetto b:Biglietto associato al p:Posto e ad e:Evento
+        deve esistere un oggetto s:Sala t.c.:
+        - (p,s): posto_sala
+        - (s,e): sala_evente
+    L'oggetto t:Tariffa associato a b:Biglietto deve
+        essere t.c.:
+        - (t,e): tariffa_evento
+        - (t,p): tariffa_posto 
+    Inoltre il numero di link tra b:Biglietto ed e:Evento può
+        essere al più il numero di link tra s:Sala e p:Posto

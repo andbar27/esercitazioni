@@ -1,0 +1,18 @@
+Specifica Use-Case VediCalendario
+
+VediCalendario(
+    tp: TipoSpettacolo,
+    g: Genere,
+    d: data
+) : Evento [0..*]
+    pre:
+        tp e g sono oggetti rispettivamente di TipoSpettacolo e Genere
+    
+    post:
+        result = ogni e:Evento t.c.
+        e.inizio[data] = d 
+        
+        Inoltre sia s:Spettacolo che partecipa a (s,e):spettc_evento
+         - (s,g): genere_spettacolo
+         - (s,t): tiposp_spettc
+         

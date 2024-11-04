@@ -1,0 +1,12 @@
+Specifica Use-Case Registrazione
+
+nuovo_utente(nome : Stringa, cognome: Stringa, codFisc: CodiceFiscale): Utente
+    pre: 
+        non esiste u:Utente t.c. u.codFisc = codFisc.
+    
+    post:
+        Viene creato u:Utente con:
+            - u.nome = nome
+            - u.cognome = cognome
+            - u.codFisc = codFisc
+        result = u 

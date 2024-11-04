@@ -6,3 +6,4 @@ DataOra = {data : Date, ora : String}
 
 codFisc = r.e. (..)
 
+TipoSala = ['Auditorium', 'Cinema', 'Teatro']

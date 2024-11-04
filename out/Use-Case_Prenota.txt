@@ -1,0 +1,9 @@
+Specifica Use-Case Prenota
+
+prenota_biglietto(b:Biglietto)
+    pre:
+        b non deve partecipare a nessun link (b,ut:Utente): utente_biglietto
+
+    post:
+        Sia u:Utente l'oggetto associato all'attore che invoca l'operazione
+        Creare link tra (b,u): utente_biglietto

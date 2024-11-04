@@ -1,0 +1,15 @@
+Specifica Use-Case SuggerimentiEventi
+
+SuggerimentiEventi() : Evento[0..*]
+    pre: Sia u:Utente l'oggetto associato all'attore che chiama l'operazione
+        u partecipa almeno ad un link con b:Biglietto utente_biglietto
+    
+    post: sia il link più recente b:Biglietto (u,b): utente_biglietto 
+        sia e:Evento (b,e): biglietto_evento
+        sia s:Spettacolo (e,s): spettc_evento 
+        sia g:Genere (g,s): genere_spettacolo
+
+        result = ogni ev:Evento t.c. 
+        ev.inizio compreso tra istante_corrente e istante_corrente + 7 giorno
+        sia sp:Spettacolo (g,sp): genere_spettacolo
+        (sp,ev): spettc_evento

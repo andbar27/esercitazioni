@@ -94,6 +94,36 @@ where ap1.comp = scalo.comp and ap1.partenza = scalo.codice and ap1.arrivo = a1.
 
 
 
+
+
+select ap1.comp, scalo.vcode, scalo.apar, ap1.partenza, ap1.codice, ap1.arrivo
+from ArrPart ap1, LuogoAeroporto a1,
+	(select distinct laa.aeroporto as codice, laa.citta, ap.comp, v.codice as vcode, ap.partenza as apar
+	from Volo v, ArrPart ap, 
+		LuogoAeroporto lap, LuogoAeroporto laa
+	where v.codice = ap.codice and v.comp = ap.comp 
+		and ap.arrivo = laa.aeroporto and laa.citta <> 'New York'
+		and ap.partenza = lap.aeroporto and lap.citta = 'Roma') as scalo
+where ap1.comp = scalo.comp and ap1.partenza = scalo.codice and ap1.arrivo = a1.aeroporto
+	and a1.citta = 'New York' 
+
+
+
+--meh
+select ap1.comp, scalo.vcode, scalo.apar, ap1.partenza, ap1.codice, ap1.arrivo
+from ArrPart ap1, LuogoAeroporto a1,
+	(select distinct aa.codice, laa.citta, ap.comp, v.codice as vcode, ap.partenza as apar
+	from Volo v, ArrPart ap, 
+		LuogoAeroporto lap, LuogoAeroporto laa,
+		Aeroporto aa, Aeroporto app
+	where v.codice = ap.codice and v.comp = ap.comp 
+		and ap.arrivo = laa.aeroporto and laa.citta <> 'New York'
+		and ap.partenza = lap.aeroporto and lap.citta = 'Roma') as scalo
+where ap1.comp = scalo.comp and ap1.partenza = scalo.codice and ap1.arrivo = a1.aeroporto
+	and a1.citta = 'New York' 
+
+
+
 -- 11. Quali sono le compagnie che hanno voli che partono dall’aeroporto ‘FCO’, atter-
 -- rano all’aeroporto ‘JFK’, e di cui si conosce l’anno di fondazione?
 select distinct v.comp

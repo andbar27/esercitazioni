@@ -1,0 +1,18 @@
+CREATE FUNCTION Video_n_visualizzazioni(_id:integer):
+	RETURN
+		(vid_id, n_vis) := 
+			SELECT vis.video, count(*)
+			FROM Visualizzazione vis
+			WHERE vis.video = _id
+			GROUP BY vis.video;
+		IF (vid_id is NULL) THEN
+			RAISE EXCEPTION('id errato')
+		ELSE
+			RETURN n_vis;
+
+
+
+
+
+CREATE FUNCTION Video_voto_medio(_id:integer):
+	... (per esercizio)

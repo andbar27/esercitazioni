@@ -1,0 +1,53 @@
+Utente( __nome__:varchar, iscrizione:timestamp )
+
+Video(__id__:serial, titolo:varchar, utente:varchar, descrizione:varchar, video:FileVideo, istante:timestamp, cat:varchar)
+	fk: (utente) references Utente(nome)
+	fk: (cat) references Categoria(nome)
+
+VideoNonCensurato(__video__:integer)
+	fk: (video) references Video(id)
+
+VideoCensurato(__video__:integer, ragione:varchar, istante:timestamp)
+	fk: (video) references Video(id)
+
+
+
+Playlist(__utente__:varchar, __nome__:varchar, tipo:TipoPlaylist)
+	fk (utente) refernces Utente(nome)
+
+PlaylistSlot( __utente__:varchar, __playlist__:varchar, __pos__:IntegerGZ, video:integer)		
+	fk: (utente, playlist) references Playlist(utente, nome)
+	fk: (video) references Video(id)
+
+
+Categoria(__nome__:varchar, livello:IntegerGZ, 
+			super_nome*, super_livello*:varchar
+		)
+	unique: (nome, livello)
+	fk: (super_nome, super_livello) references Categoria(nome, livello) 
+			ON DELETE CASCADE ON UPDATE CASCADE
+
+	[V.Categoria.aciclico]
+	check: (super_nome IS NULL) = (super_livello IS NULL)
+	check: (livello = CASE
+						WHEN super_livello IS NULL THEN 1 
+						ELSE super_livello + 1 
+					 END)
+
+
+Tag(__nome__:varchar)
+
+Visualizzazione(__id__:serial, istante:timestamp, utente:varchar, video:integer)
+	fk: (utente) references Utente(nome)
+	fk: (video) references Video(id)
+
+Commento(__id__:serial, testo:varchar, istante:timestamp, utente:varchar, video:integer)
+	fk: (utente) references Utente(nome)
+	fk: (video) references Video(id)
+
+
+valutazione( __utente:varchar__,  __video:integer__, voto:Voto, istante:timestamp  )
+	fk: (utente) references Utente(nome)
+	fk: (video) references Video(id)
+
+

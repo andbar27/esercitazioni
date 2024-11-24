@@ -1,0 +1,87 @@
+-- Progetto del vincolo [V.valutazione.video_gia_visualizzato]
+-- 
+-- Per ogni ennupla val:valutazione, 
+-- 	deve esistere una ennupla vis:Visualizzazione tale che:
+-- 		- vis.utente = val.utente
+-- 		- val.video = vis.video
+-- 		- vis.istante < val.istante
+
+-- Eventi da intercettare
+	-- 1) INSERT(new),  new in valutazione
+	-- 2) UPDATE(old, new) in valutazione  ---> da limitare, al più al voto
+	-- 3) DELETE(old) in valutazione --> innocuo
+
+	-- 4) INSERT(new) in Visualizzazione --> innocuo
+	-- 5) UPDATE(old, new) in Visualizzazione --> da impedire
+	-- 6) DELETE(old) in Visualizzazione --> da impedire
+
+
+-- Politica di verifica del vincolo:
+
+-- Per gli eventi 3) e 4): niente da fare
+
+-- Per gli eventi 2), 5), 6):
+REVOKE UPDATE(utente, video, istante) ON valutazione FROM PUBLIC; -- 2)
+REVOKE UPDATE ON Visualizzazione FROM PUBLIC; -- 5)
+REVOKE DELETE ON Visualizzazione FROM PUBLIC; -- 6)
+
+
+-- Per l'evento 1) INSERT(new),  new in valutazione
+TRIGGER V_valutazione_video_gia_visualizzato_INSERT_valutazione
+EVENTI: INSERT(new) in valutazione
+QUANDO SCATTARE: dopo l'evento intercettato
+
+FUNZIONE(new):
+	IF NOT EXISTS(
+		SELECT *
+		FROM Visualizzazione vis
+		WHERE vis.utente = new.utente
+		  AND vis.video = new.video
+		  AND vis.istante < new.istante
+	) THEN
+		RAISE EXCEPTION ('.....')
+	ELSE 
+		RETURN new;	
+
+
+
+Progetto del vincolo V.valutazione.video_non_di_se_stesso
+
+
+Per ogni val:valutazione, val.video  non deve essere dell'utente 'u'
+
+
+-- Eventi da intercettare
+	1) INSERT(new) in valutazione
+	2) UPDATE(old, new) in valutazione --> da impedire, tranne il voto
+	3) DELETE(old) in valutazione --> innocuo
+
+	4) INSERT(new) in Video  --> innocuo
+	5) UPDATE(old, new) in Video  ---> da impedire, se non titolo e descrizione, cat
+	6) DELETE(old) in Video --> da impedire
+
+
+Politica di gestione del vincolo:
+
+-- 2), 5), 6)
+REVOKE UPDATE(utente, video, istante) ON valutazione FROM PUBLIC;
+REVOKE UPDATE ON Video(id, utente, video, istante) FROM PUBLIC;
+REVOKE DELETE ON Video FROM PUBLIC;
+
+-- 1) 
+TRIGGER V_valutazione_video_non_di_se_stesso_INSERT_valutazione
+EVENTO: INSERT in valutazione
+QUANDO: dopo l'operazione
+
+FUNZIONE(new):
+	IF EXISTS (
+		SELECT *
+		FROM Video vid
+		WHERE new.video = vid.id
+	) THEN
+		RAISE EXCEPTION ('...')
+	ELSE 
+		RETURN new;
+	  AND vid.utente = new.utente
+
+

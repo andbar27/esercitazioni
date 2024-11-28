@@ -1,0 +1,8 @@
+Specifica use-case OperePerArtistaNonEsposteInPeriodo
+
+OperePerArtistaNonEsposteInPeriodo(a: Autore, dI: Data, dF: Data): Opera[0..*]
+    Sia o:Opera tc (a,o):aut_op e sia oe:Opera Esposta tc (o,oe):op_esp 
+    ed (oe.data_inizio <= dF OR oe.data_fine >= dI)
+    sia oes:Opera tc (oes,oe):op_esp cioè tutte le opere dell'artista esposte
+    nel dato periodo.
+    ritorna: tutte le opere o1:Opera tc (a,o1):aut_op meno oes 

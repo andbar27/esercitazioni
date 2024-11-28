@@ -1,0 +1,9 @@
+Specifica use-case BigliettiVendutiPerData
+
+BigliettiVendutiPerData(et:EsposizioneTemporanea, d:Data): Intero
+    pre:
+        et Esiste AND et.data_inizio >= d AND et.data_fine <= d
+
+    post:
+        return = numero dei link associazione (et,be):bigl_ext_espt siano be:Biglietto Extended
+            inoltre sia b:Biglietto dal quale generalizza be, b.giorno = d

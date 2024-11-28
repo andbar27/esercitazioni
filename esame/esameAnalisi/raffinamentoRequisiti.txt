@@ -1,0 +1,76 @@
+1. Opera
+    1.1 nome : Stringa
+    1.2 Categoria Opera (v. req. 2) 
+    1.3 Autore (v. req. 3) [0..1] (0..1 autore ignoto)
+    1.4 anno realizzazione : Intero != 0 (non esiste anno 0)
+    1.5 Tecnica Artistica (v.req. 4) [0..*] (0..* per permettere tecnica mista)
+    1.6 Corrente Artistica (v. req. 5) [1..*]
+
+
+2. Categoria Opera
+    nome : Stringa
+
+
+3. Autore
+    nome d'arte : Stringa
+    Citta nascita (v. req. 20) [0..1] può essere ignota
+    Data nascita : Data [0..1] "
+    Data morte : Data [0..1] " o ancora in vita
+    Opere (v. req. 1) [1..*] (interessano quelle del museo quindi ne ha almeno una?)
+
+
+4. Tecnica Artistica
+    nome : Stringa {id}
+
+
+5. Corrente Artistica
+    nome : Stringa {id}
+
+6. Esposizione
+
+7. Esposizione Permanente
+
+8. Esposizione Temporanea (v. req. 6)
+    nome : Stringa
+    data inizio : Data
+    data fine : Data
+    prezzo : Reale >= 0
+
+    (vincolo ennupla): data fine >= data inizio
+
+
+
+9. Tema Esposizione Temporanea
+
+10. Tema Artista 
+
+11. Tema Corrente Artistica
+
+12. Tema Periodo Storico
+
+13. Biglietto
+    Tariffa (v. req. 14)
+    istante vendita : DataOra
+    giorno : Data
+
+14. Biglietto Standard (v. req. 13)
+
+15. Biglietto Extended Access (v. req. 13)
+    Esposizione Temporanea (v. req. 8) [1..*]
+
+    (operazione): calcolo prezzo
+
+
+16. Tariffa
+    prezzo base : Reale >= 0
+
+
+
+20. Citta
+    nome
+
+21. Regione
+    nome
+
+22. Nazione
+    nome

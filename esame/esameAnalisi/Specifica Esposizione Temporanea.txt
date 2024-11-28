@@ -1,0 +1,37 @@
+Specifica classe Esposizione Temporanea 
+
+Vincoli ennupla 
+
+(Vincoli.ennupla.EsposizioneTemporanea)
+Per ogni e:EsposizioneTemporanea 
+    e.data fine >= e.data inizio
+
+
+
+Vincoli Esterni
+
+(Vincoli.Esterni.Esposizione)
+// Per ogni Esposizione Temporanea:
+//    - se Tema Esposizione ha un'istanza di Tema Corrente
+//        le istanze di Opera associate ad Opera Esposta associate a Esposizione devono
+//        avere un'associazione (corr_op) con le Correnti Artistiche associate a Tema Corrente tramite (tem_cor)
+//    - se Tema Esposizione ha un'istanza di Tema Artisti
+//        le istanze di Opera associate ad Opera Esposta associate a Esposizione devono
+//        avere un'associazione (aut_op) con gli Autore associati a Tema Artisti tramite (tem_aut)
+//    - se Tema Esposizione ha un'istanza di Tema Periodo 
+//        le istanze di Opera associate ad Opera Esposta associate a Esposizione devono
+//        avere un valore per anno_realizzazione compreso tra anno_inizio e anno_fine di Tema Periodo
+
+Per ogni et:EsposizioneTemporanea sia e:Esposizione l'oggetto dal quale generalizza, 
+    siano oe:Opera Esposta tc (oe,e):esp_op e siano o:Opera tc (o,oe):op_esp   
+    sia t:Tema Esposizione tc (t,et):tema_esp:
+
+    - tcor:Tema Corrente che generalizza da t, sia c:CorrenteArtistica tc (c,tcor):tem_cor 
+        (o,c):corr_op 
+
+    - tart:Tema Artisti che generalizza da t, per ogni a:Autore tc (a,tart):tem_aut 
+        esiste un a tc (a,o):aut_op
+
+    - tpr:Tema Periodo che generalizza da t, per ogni o:Opera(sopra definita) 
+        tpr.data_inizio >= o.anno_realizzazione AND tpr.data_fine <= o.anno_realizzazione  
+

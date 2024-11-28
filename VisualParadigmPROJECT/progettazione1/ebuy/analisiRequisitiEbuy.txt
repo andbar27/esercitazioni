@@ -1,0 +1,83 @@
+Utente_Registrato: Nickname, Data_Registrazione, --Feedback
+
+Venditori_Professionisti: Url, Info_Legali, Popolarità(), --Annuncio
+
+Feedback: Voto, Commento
+
+Annuncio(Post): Metodo_Pagamento, --Oggetto, --Garanzia, --Feedback
+-> Asta: Prezzo_Iniziale, Rialzo, Scadenza, --Offerta
+    -> Asta_Conclusa: Bid, Prezzo_Finale
+-> Compra_Subito: Prezzo 
+&
+-> Ogg_Nuovo: 
+-> Ogg_Usato: Condizioni
+
+Oggetto: Descrizione, --Categoria
+
+Offerta(Bid): Momento_Proposta, --Utente_Registrato(Bidder)
+
+Garanzia: Durata
+
+Categoria: --Categoria 
+
+
+1. Utente_Registrato
+	1.1 Nickname: str {id}
+	1.2 Data_Registrazione: Data
+	
+2. Venditore_Professionista
+	2.1 Nickname
+	2.2 Url
+	2.3 Info_Legali
+	2.4s Popolarità()
+	
+3. Oggetto
+	3.1 Nome
+	3.2 Descrizione
+	
+4. Post
+	4.1 Prezzo
+	4.2 Metodo_Pagamento
+
+5. Post "Compra_Subito"
+	
+6. Post "Asta"
+	6.1 Prezzo_Iniziale
+	6.2 Rialzo
+	6.3 Scadenza: DataOra
+	
+7. Post "Asta" "Asta_Conclusa"
+	7.1 Prezzo_Finale
+
+8. Post "Usato"
+	8.1 Condizioni
+
+9. Post "Nuovo"
+
+10. Garanzia
+	10.1 Fine_Garanzia
+
+11. Garanzia "Nuovo"
+	11.1 Fine_Garanzia (min 2 due anni)
+	
+
+12. Offerta
+	12.1 Momento_Offerta: DataOra
+	
+13. Categoria
+
+14. Feedback
+	14.1 Voto
+	14.2 Commento
+	
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+1. Sede
+    1.1 nome
+    1.2 indirizzo
+    1.3 Sale 
+
+2. Sala
+    2.1 Spettacolo
+    2.2 Posti
+
+3. Spettacolo
+    3.1 titolo
+    3.2 tipo
+    3.3 genere
+    3.4 Artisti
+    3.5 dateOrari
+    3.6 Sedi
+
+4. Posto
+    4.1 fila
+    4.2 colonna
+    4.3 disponibilita
+    4.4 tipologia

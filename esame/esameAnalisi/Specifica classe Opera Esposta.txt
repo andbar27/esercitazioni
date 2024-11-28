@@ -1,0 +1,16 @@
+Specifica classe Opera Esposta
+
+Vincoli ennupla
+[V.ennupla.coerenzaDate]
+Per ogni oe:Opera Esposta
+    oe.data_inizio <= oe.data_fine
+
+
+Vincoli Esterni
+[V.esterno.Opera_gia_esposta]
+// Un istanza di Opera non può partecipare a due istanze 
+// di Opera Esposta in date sovrapposte.
+Per ogni o:Opera 
+    Sia oe:Opera Esposta tc (o,oe):op_esp
+        Per ogni oe1:Opera Esposta tc (o,oe1):op_esp AND (oe != oe1)
+            (oe.data_inizio >= oe1.data_fine) OR (oe.data_fine <= oe1.data_inizio) 

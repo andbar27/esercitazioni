@@ -1,0 +1,20 @@
+* = può essere null
+
+Paziente(__cf__ : varchar(20), nome : varchar(30), cognome : varchar(30))
+
+SpecializzazioneMedica(__nome__ : varchar(30))
+
+Medico(__codice__ : integer, specializzazione : varchar(30))
+    fk: (specializzazione) references SpecializzazioneMedica(nome)
+
+Ricovero(__id__ : serial, inizio : date, fine* : date, paziente : varchar(20))
+    fk: (paziente) references Paziente(cf)
+    vincolo di ennupla: (fine IS NULL) OR (fine >= inizio)
+
+medico_resp(__ricovero__ : integer, __medico__ : integer)
+    fk: (ricovero) references Ricovero(id)
+    fk: (medico) references Medico(codice)
+
+
+
+
